@@ -15,6 +15,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -25,7 +27,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'BaiTap7/public' # Đường dẫn trỏ đúng vào thư mục web của bạn
+          path: 'BaiTap7/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
